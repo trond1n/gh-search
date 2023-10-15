@@ -33,7 +33,7 @@ export interface IRepo {
   full_name: string;
   forks: string;
   watchers: string;
-  url: string;
+  html_url: string;
   description: string;
   private: boolean;
   owner: IOwner;

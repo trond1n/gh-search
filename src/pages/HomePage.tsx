@@ -26,7 +26,7 @@ const HomePage: React.FC = () => {
 
   const clickHandler = (userName: string) => {
     fetchRepos(userName);
-    console.log(repos);
+    setDropdown(false);
   };
   return (
     <div className="flex justify-center pt-10 mx-auto h-screen w-screen">
@@ -34,7 +34,7 @@ const HomePage: React.FC = () => {
       <div className="relative w-[560px]">
         <input
           type="text"
-          className="border py-2 px-4 w-full h-[42] mp-2"
+          className="border py-2 px-4 w-full h-[42] mb-2"
           placeholder="Search for Github username..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
@@ -57,7 +57,9 @@ const HomePage: React.FC = () => {
         )}
         <div className="container">
           {areReposLoading && <p className="text-center">Loading...</p>}
-          {repos?.map(repo=><Repocard repo={repo} key={repo.id}/>)}
+          {repos?.map((repo) => (
+            <Repocard repo={repo} key={repo.id} />
+          ))}
         </div>
       </div>
     </div>
